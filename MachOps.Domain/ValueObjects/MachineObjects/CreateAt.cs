@@ -6,10 +6,8 @@ public sealed class CreateAt : ValueObject
 {
     public DateTime Value { get; }
 
-    public CreateAt(DateTime create)
-    {
-        Value = create;
-    }
+    public CreateAt(DateTime create) => Value = create;
+
 
     public CreateAt()
     {
