@@ -6,7 +6,7 @@ public sealed class MaintenceStartDate : ValueObject
 {
     public DateTime? Value { get; }
 
-    public MaintenceStartDate(DateTime? start) => Value = start ?? DateTime.UtcNow;
+    public MaintenceStartDate(DateTime? start) => Value = start;
 
     private MaintenceStartDate() { }
 }
