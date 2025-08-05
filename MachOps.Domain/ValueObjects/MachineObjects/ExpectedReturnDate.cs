@@ -6,7 +6,7 @@ public sealed class ExpectedReturnDate : ValueObject
 {
     public DateTime? Value { get; } = null;
 
-    public ExpectedReturnDate(DateTime expected)
+    public ExpectedReturnDate(DateTime? expected)
     {
         Value = expected;
     }

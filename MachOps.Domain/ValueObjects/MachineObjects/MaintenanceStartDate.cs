@@ -4,13 +4,10 @@ namespace MachOps.Domain.ValueObjects.Machines;
 
 public sealed class MaintenceStartDate : ValueObject
 {
-    public DateTime? Value { get; } = null;
+    public DateTime? Value { get; }
 
-    public MaintenceStartDate(DateTime start)
-    {
-        Value = start;
-    }
+    public MaintenceStartDate(DateTime? start) => Value = start ?? DateTime.UtcNow;
 
-    public MaintenceStartDate() => Value = DateTime.UtcNow;
+    public MaintenceStartDate() { }
 
 }
