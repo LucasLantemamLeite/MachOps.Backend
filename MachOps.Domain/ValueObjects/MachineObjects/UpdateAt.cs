@@ -6,7 +6,10 @@ public sealed class UpdateAt : ValueObject
 {
     public DateTime? Value { get; }
 
-    public UpdateAt(DateTime? update) => Value = update ?? DateTime.UtcNow;
+    public UpdateAt(DateTime? update) => Value = update;
 
-    public UpdateAt() { }
+    public UpdateAt()
+    {
+        Value = DateTime.UtcNow;
+    }
 }
