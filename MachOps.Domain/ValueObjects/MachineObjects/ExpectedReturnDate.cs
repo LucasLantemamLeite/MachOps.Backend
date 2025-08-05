@@ -11,5 +11,5 @@ public sealed class ExpectedReturnDate : ValueObject
         Value = expected;
     }
 
-    public ExpectedReturnDate() { }
+    private ExpectedReturnDate() { }
 }

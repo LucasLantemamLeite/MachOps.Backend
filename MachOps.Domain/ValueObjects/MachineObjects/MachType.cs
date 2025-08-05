@@ -14,5 +14,5 @@ public sealed class MachType : ValueObject
         Value = (EMachType)machType;
     }
 
-    public MachType() { }
+    private MachType() { }
 }

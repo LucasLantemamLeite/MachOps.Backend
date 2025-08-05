@@ -14,5 +14,5 @@ public sealed class Status : ValueObject
         Value = (EStatus)status;
     }
 
-    public Status() { }
+    private Status() { }
 }

@@ -41,5 +41,5 @@ public sealed class MachineEntity : Entity
         ExpectedReturnDate = new ExpectedReturnDate(expectedReturn);
     }
 
-    public MachineEntity() { }
+    private MachineEntity() { }
 }

@@ -8,5 +8,5 @@ public sealed class UpdateAt : ValueObject
 
     public UpdateAt(DateTime? update) => Value = update ?? DateTime.UtcNow;
 
-    public UpdateAt() { }
+    private UpdateAt() { }
 }

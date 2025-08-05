@@ -13,5 +13,5 @@ public sealed class Name : ValueObject
         Value = name;
     }
 
-    public Name() { }
+    private Name() { }
 }

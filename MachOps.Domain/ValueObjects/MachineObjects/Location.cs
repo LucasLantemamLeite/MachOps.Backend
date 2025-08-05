@@ -11,5 +11,5 @@ public sealed class Location : ValueObject
         Value = location;
     }
 
-    public Location() { }
+    private Location() { }
 }

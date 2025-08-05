@@ -11,5 +11,5 @@ public sealed class Description : ValueObject
         Value = description;
     }
 
-    public Description() { }
+    private Description() { }
 }
