@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MachOps.Domain\MachOps.Domain.csproj" />
+    <ProjectReference Include="..\MachOps.Application\MachOps.Application.csproj" />
   </ItemGroup>
 
 </Project>
