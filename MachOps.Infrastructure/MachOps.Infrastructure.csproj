@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MachOps.Domain\MachOps.Domain.csproj" />
+    <ProjectReference Include="..\MachOps.Application\MachOps.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dapper" Version="2.1.66" />
+    <PackageReference Include="microsoft.data.sqlclient" Version="6.0.2" />
   </ItemGroup>
 
   <PropertyGroup>
