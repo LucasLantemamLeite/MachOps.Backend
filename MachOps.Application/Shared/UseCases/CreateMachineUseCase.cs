@@ -1,5 +1,6 @@
 using MachOps.Application.Interfaces.Queries;
 using MachOps.Application.Interfaces.Repositories;
+using MachOps.Application.Interfaces.UseCases;
 using MachOps.Application.Shared.Commands;
 using MachOps.Application.Shared.ResultCases;
 using MachOps.Application.Shared.UseCases.Base;
@@ -8,7 +9,7 @@ using MachOps.Domain.ValueObjects.Validations;
 
 namespace MachOps.Application.Shared.UseCases;
 
-public sealed class CreateMachineUseCase : BaseUseCase<IMachineQuery, IMachineRepository>
+public sealed class CreateMachineUseCase : BaseUseCase<IMachineQuery, IMachineRepository>, ICreateMachineUseCase
 {
     public CreateMachineUseCase(IMachineQuery query, IMachineRepository repository) : base(query, repository) { }
 
