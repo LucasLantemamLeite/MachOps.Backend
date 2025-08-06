@@ -10,7 +10,7 @@ public abstract class FakeBaseDb
             id: 1,
             name: "Empilhadeira",
             machType: 1,
-            status: 2,
+            status: 3,
             location: "Galpão A",
             create: new DateTime(2025, 1, 15),
             update: new DateTime(2025, 6, 10),
