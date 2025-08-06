@@ -28,7 +28,7 @@ public sealed class MachineEntity : Entity
         ExpectedReturnDate = new ExpectedReturnDate(expectedReturn);
     }
 
-    public MachineEntity(int id, string name, int machType, string? location, DateTime create, DateTime update, int status, string? description, DateTime? maintenceStart, DateTime? expectedReturn) : base(id)
+    public MachineEntity(int id, string name, int machType, int status, string? location, DateTime create, DateTime update, string? description, DateTime? maintenceStart, DateTime? expectedReturn) : base(id)
     {
         Name = new Name(name);
         MachType = new MachType(machType);
