@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Domain", "MachOps.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Test", "MachOps.Test\MachOps.Test.csproj", "{4F5D11AA-F678-4B85-A256-DFE9FC55858B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Migrations", "MachOps.Migrations\MachOps.Migrations.csproj", "{78DE5AE9-1DE7-403C-A565-E11FE433217A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4F5D11AA-F678-4B85-A256-DFE9FC55858B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F5D11AA-F678-4B85-A256-DFE9FC55858B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F5D11AA-F678-4B85-A256-DFE9FC55858B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78DE5AE9-1DE7-403C-A565-E11FE433217A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78DE5AE9-1DE7-403C-A565-E11FE433217A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78DE5AE9-1DE7-403C-A565-E11FE433217A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78DE5AE9-1DE7-403C-A565-E11FE433217A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
