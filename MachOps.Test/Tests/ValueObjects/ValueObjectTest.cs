@@ -1,7 +1,7 @@
 using MachOps.Domain.ValueObjects.Machines;
 using MachOps.Domain.ValueObjects.Validations;
 
-namespace MachOps.Test.ValueObjects.MachineEntity;
+namespace MachOps.Test.ValueObjects;
 
 [Trait("Category", "ValueObjectTest")]
 public sealed class ValueObjectsTest
