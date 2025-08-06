@@ -7,7 +7,7 @@ public sealed class FakeMachineQuery : IMachineQuery
 {
     private readonly IEnumerable<MachineEntity> _machines;
 
-    public FakeMachineQuery(List<MachineEntity> machines) => _machines = machines;
+    public FakeMachineQuery(IEnumerable<MachineEntity> machines) => _machines = machines;
 
     public Task<IEnumerable<MachineEntity>> GetAllAsync()
     {
