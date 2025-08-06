@@ -1,6 +1,6 @@
 using MachOps.Domain.Entities.Base;
 
-namespace MachOps.Application.Shared.ResultCase;
+namespace MachOps.Application.Shared.ResultCases;
 
 public sealed class Result<T> where T : Entity
 {
