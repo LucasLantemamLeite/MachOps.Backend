@@ -1,4 +1,3 @@
-using System.Reflection.PortableExecutable;
 using MachOps.Application.Shared.Raws;
 using MachOps.Domain.Entities;
 
@@ -23,5 +22,5 @@ public static class MachineEntityMapper
         );
     }
 
-    public static IEnumerable<MachineEntity> ToEnumerableMachineEntity(this IEnumerable<MachineEntityRaw> machineRaws) => machineRaws.Select(m => m.ToSingleMachineEntity());
+    public static List<MachineEntity> ToListMachineEntity(this IEnumerable<MachineEntityRaw> machineRaws) => machineRaws.Select(m => m.ToSingleMachineEntity()).ToList();
 }
