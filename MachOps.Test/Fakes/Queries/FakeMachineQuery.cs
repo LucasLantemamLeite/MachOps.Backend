@@ -5,18 +5,18 @@ namespace MachOps.Test.Fakes.Queries;
 
 public sealed class FakeMachineQuery : IMachineQuery
 {
-    private readonly IEnumerable<MachineEntity> _machines;
+    private readonly List<MachineEntity> _machines;
 
-    public FakeMachineQuery(IEnumerable<MachineEntity> machines) => _machines = machines;
+    public FakeMachineQuery(List<MachineEntity> machines) => _machines = machines;
 
-    public Task<IEnumerable<MachineEntity>> GetAllAsync()
+    public Task<List<MachineEntity>> GetAllAsync()
     {
         return Task.FromResult(_machines);
     }
 
-    public Task<IEnumerable<MachineEntity>> GetByExpectedReturnDateAsync(DateTime expectReturn)
+    public Task<List<MachineEntity>> GetByExpectedReturnDateAsync(DateTime expectReturn)
     {
-        var machines = _machines.Where(x => x.ExpectedReturnDate.Value == expectReturn);
+        var machines = _machines.Where(x => x.ExpectedReturnDate.Value == expectReturn).ToList();
 
         return Task.FromResult(machines);
     }
@@ -28,23 +28,23 @@ public sealed class FakeMachineQuery : IMachineQuery
         return Task.FromResult(machine);
     }
 
-    public Task<IEnumerable<MachineEntity>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
+    public Task<List<MachineEntity>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
     {
-        var machines = _machines.Where(x => x.MaintenceStartDate.Value >= maintenanceStart && x.ExpectedReturnDate.Value < expectReturn);
+        var machines = _machines.Where(x => x.MaintenceStartDate.Value >= maintenanceStart && x.ExpectedReturnDate.Value < expectReturn).ToList();
 
         return Task.FromResult(machines);
     }
 
-    public Task<IEnumerable<MachineEntity>> GetByMachTypeAsync(int type)
+    public Task<List<MachineEntity>> GetByMachTypeAsync(int type)
     {
-        var machines = _machines.Where(x => (int)x.MachType.Value == type);
+        var machines = _machines.Where(x => (int)x.MachType.Value == type).ToList();
 
         return Task.FromResult(machines);
     }
 
-    public Task<IEnumerable<MachineEntity>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
+    public Task<List<MachineEntity>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
     {
-        var machines = _machines.Where(x => x.MaintenceStartDate.Value == maintenanceStart);
+        var machines = _machines.Where(x => x.MaintenceStartDate.Value == maintenanceStart).ToList();
 
         return Task.FromResult(machines);
     }
@@ -56,9 +56,9 @@ public sealed class FakeMachineQuery : IMachineQuery
         return Task.FromResult(machine);
     }
 
-    public Task<IEnumerable<MachineEntity>> GetByStatusAsync(int status)
+    public Task<List<MachineEntity>> GetByStatusAsync(int status)
     {
-        var machines = _machines.Where(x => (int)x.Status.Value == status);
+        var machines = _machines.Where(x => (int)x.Status.Value == status).ToList();
 
         return Task.FromResult(machines);
     }
