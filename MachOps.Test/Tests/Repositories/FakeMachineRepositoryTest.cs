@@ -16,7 +16,7 @@ public sealed class FakeMachineRepositoryTest : FakeBaseDb
     public async Task Create_WithValidMachineEntity_ShouldReturnRowsEffects()
     {
         var machine = new MachineEntity(id: 3,
-            name: "Guindaste",
+            name: "BC-12",
             machType: 5,
             status: 1,
             location: "Bloco D",
