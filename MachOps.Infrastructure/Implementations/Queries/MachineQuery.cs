@@ -1,5 +1,4 @@
 using System.Data;
-using System.Text;
 using Dapper;
 using MachOps.Application.Interfaces.Queries;
 using MachOps.Application.Shared.Mappers;
@@ -16,12 +15,11 @@ public sealed class MachineQuery : IMachineQuery
 
     private const string SqlSelectBase = "SELECT Id, Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenceStartDate, ExpectedReturnDate FROM [Machines]";
 
-    public async Task<IEnumerable<MachineEntity>> GetAllAsync()
+    public async Task<List<MachineEntity>> GetAllAsync()
     {
         var sql = $"{SqlSelectBase}";
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, null);
-
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 
     public async Task<MachineEntity?> GetByIdAsync(int id)
@@ -33,7 +31,7 @@ public sealed class MachineQuery : IMachineQuery
         return raw?.ToSingleMachineEntity();
     }
 
-    public async Task<IEnumerable<MachineEntity>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
+    public async Task<List<MachineEntity>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
     {
         var start = maintenanceStart.Date;
         var end = expectReturn.Date.AddDays(1);
@@ -42,10 +40,10 @@ public sealed class MachineQuery : IMachineQuery
         var parameters = new { Start = start, End = end };
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, parameters);
 
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 
-    public async Task<IEnumerable<MachineEntity>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
+    public async Task<List<MachineEntity>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
     {
         var start = maintenanceStart.Date;
 
@@ -53,10 +51,10 @@ public sealed class MachineQuery : IMachineQuery
         var parameters = new { Start = start };
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, parameters);
 
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 
-    public async Task<IEnumerable<MachineEntity>> GetByExpectedReturnDateAsync(DateTime expectReturn)
+    public async Task<List<MachineEntity>> GetByExpectedReturnDateAsync(DateTime expectReturn)
     {
         var end = expectReturn.Date;
 
@@ -64,16 +62,16 @@ public sealed class MachineQuery : IMachineQuery
         var parameters = new { End = end };
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, parameters);
 
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 
-    public async Task<IEnumerable<MachineEntity>> GetByMachTypeAsync(int type)
+    public async Task<List<MachineEntity>> GetByMachTypeAsync(int type)
     {
         var sql = $"{SqlSelectBase} WHERE MachType = @MachType";
         var parameters = new { MachType = type };
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, parameters);
 
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 
     public async Task<MachineEntity?> GetByNameAsync(string name)
@@ -85,12 +83,12 @@ public sealed class MachineQuery : IMachineQuery
         return raw?.ToSingleMachineEntity();
     }
 
-    public async Task<IEnumerable<MachineEntity>> GetByStatusAsync(int status)
+    public async Task<List<MachineEntity>> GetByStatusAsync(int status)
     {
         var sql = $"{SqlSelectBase} WHERE Status = @Status";
         var parameters = new { Status = status };
         var raws = await _connection.QueryAsync<MachineEntityRaw>(sql, parameters);
 
-        return raws.ToEnumerableMachineEntity();
+        return raws.ToListMachineEntity();
     }
 }
