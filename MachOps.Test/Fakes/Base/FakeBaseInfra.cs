@@ -4,7 +4,7 @@ namespace MachOps.Test.Fakes.Base;
 
 public abstract class FakeBaseDb
 {
-    protected IEnumerable<MachineEntity> machines = new List<MachineEntity>
+    protected List<MachineEntity> machines = new()
     {
         new(
             id: 1,
@@ -14,7 +14,7 @@ public abstract class FakeBaseDb
             location: "Galpão A",
             create: new DateTime(2025, 1, 15),
             update: new DateTime(2025, 6, 10),
-            description: "",
+            description: null,
             maintenceStart: new DateTime(2025, 8, 1),
             expectedReturn: new DateTime(2025, 8, 5)
         ),
