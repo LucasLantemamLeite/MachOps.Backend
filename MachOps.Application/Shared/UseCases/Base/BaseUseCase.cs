@@ -13,17 +13,15 @@ public abstract class BaseUseCase<TQuery, TRepository>
         _repository = repository;
     }
 
-    protected BaseUseCase(TQuery query)
-    {
-        _query = query;
-    }
+    protected BaseUseCase(TQuery query) => _query = query;
 
-    protected BaseUseCase(TRepository repository)
-    {
-        _repository = repository;
-    }
+    protected BaseUseCase(TRepository repository) => _repository = repository;
 
-    protected TQuery Query => _query ?? throw new InvalidOperationException("Query não foi injetado.");
+    protected BaseUseCase() { }
 
-    protected TRepository Repository => _repository ?? throw new InvalidOperationException("Repository não foi injetado.");
+    protected TQuery Query => _query is Unused ? throw new InvalidOperationException($"Query do tipo {typeof(TQuery).Name} foi marcada como não usada.")
+    : _query ?? throw new InvalidOperationException($"Query do tipo {typeof(TQuery).Name} não foi injetado.");
+
+    protected TRepository Repository => _repository is Unused ? throw new InvalidOperationException($"Query do tipo {typeof(TRepository).Name} foi marcada como não usada.")
+    : _repository ?? throw new InvalidOperationException($"Query do tipo {typeof(TRepository).Name} não foi injetado.");
 }
