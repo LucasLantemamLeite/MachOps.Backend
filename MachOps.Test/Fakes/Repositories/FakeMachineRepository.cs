@@ -13,7 +13,7 @@ public sealed class FakeMachineRepository : IMachineRepository
     {
         var existingMachine = _machines.FirstOrDefault(x => x.Name.Value == machine.Name.Value);
 
-        if (existingMachine is null)
+        if (existingMachine is not null)
             return Task.FromResult(0);
 
         _machines.Add(machine);
