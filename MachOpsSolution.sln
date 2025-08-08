@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Application", "Mach
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Infrastructure", "MachOps.Infrastructure\MachOps.Infrastructure.csproj", "{8D6D05A7-F0FC-4017-8BFF-0943D7153E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachOps.Api", "MachOps.Api\MachOps.Api.csproj", "{B85D2FAD-7B7B-41AC-B83B-5D521FB40596}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{8D6D05A7-F0FC-4017-8BFF-0943D7153E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D6D05A7-F0FC-4017-8BFF-0943D7153E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D6D05A7-F0FC-4017-8BFF-0943D7153E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85D2FAD-7B7B-41AC-B83B-5D521FB40596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85D2FAD-7B7B-41AC-B83B-5D521FB40596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85D2FAD-7B7B-41AC-B83B-5D521FB40596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85D2FAD-7B7B-41AC-B83B-5D521FB40596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
