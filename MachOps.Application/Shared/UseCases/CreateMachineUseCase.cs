@@ -33,10 +33,9 @@ public sealed class CreateMachineUseCase : BaseUseCase<IMachineQuery, IMachineRe
                 command.ExpectedReturnDate
             );
 
-            var row = await Repository.CreateAsync(machine);
+            var id = await Repository.CreateAsync(machine);
 
-            if (row == 0)
-                return Result<MachineEntity>.Fail("Erro interno no servidor. Falha ao criar nova Machine");
+            machine.ChangeId(id);
 
             return Result<MachineEntity>.Ok("Machine criado com sucesso.", machine);
         }
