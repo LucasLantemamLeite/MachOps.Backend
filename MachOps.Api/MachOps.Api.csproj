@@ -2,6 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MachOps.Domain\MachOps.Domain.csproj" />
+    <ProjectReference Include="..\MachOps.Application\MachOps.Application.csproj" />
+    <ProjectReference Include="..\MachOps.Infrastructure\MachOps.Infrastructure.csproj" />
+    <ProjectReference Include="..\MachOps.Migrations\MachOps.Migrations.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
