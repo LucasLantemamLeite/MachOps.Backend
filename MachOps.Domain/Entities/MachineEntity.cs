@@ -15,6 +15,8 @@ public sealed class MachineEntity : Entity
     public MaintenceStartDate MaintenceStartDate { get; private set; }
     public ExpectedReturnDate ExpectedReturnDate { get; private set; }
 
+    public void ChangeId(int id) => Id = id;
+
     public MachineEntity(string name, int machType, string? location, int status, string? description, DateTime? maintenceStart, DateTime? expectedReturn)
     {
         Name = new Name(name);
