@@ -16,7 +16,7 @@ public sealed class MachineRepository : IMachineRepository
         var sql = @"INSERT INTO [Machines] 
         (Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenceStartDate, ExpectedReturnDate)
         VALUES
-        (@Name, @MachType @Status @Location @CreateAt @UpdateAt @Description @MaintenceStartDate @ExpectedReturnDate)
+        (@Name, @MachType, @Status, @Location, @CreateAt, @UpdateAt, @Description, @MaintenceStartDate, @ExpectedReturnDate)
         SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
         var parameters = new
