@@ -4,7 +4,6 @@ using MachOps.Application.Shared.Commands;
 using MachOps.Application.Shared.DTOs;
 using MachOps.Application.Shared.ResultCases;
 using MachOps.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MachOps.Api.Orchestrations.Handlers;
 
