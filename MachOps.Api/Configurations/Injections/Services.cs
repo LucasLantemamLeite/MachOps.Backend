@@ -1,4 +1,6 @@
 using System.Data;
+using MachOps.Application.Interfaces.UseCases;
+using MachOps.Application.Shared.UseCases.Base;
 using MachOps.Migrations.Data.Context;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,7 @@ public static class ServiceInjetion
 
         service.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
         service.AddScoped<IDbConnection>(sp => new SqlConnection(connectionString));
+        service.AddScoped<IUnused, Unused>();
 
         return service;
     }
