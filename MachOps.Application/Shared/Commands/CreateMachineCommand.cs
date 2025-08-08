@@ -10,7 +10,7 @@ public sealed class CreateMachineCommand
     public DateTime? MaintenceStartDate { get; init; }
     public DateTime? ExpectedReturnDate { get; init; }
 
-    public CreateMachineCommand(string name, int machType, string? location, int status, string? description, DateTime? maintenceStart, DateTime? expectedReturn)
+    public CreateMachineCommand(string name, int machType, int status, string? location, string? description, DateTime? maintenceStart, DateTime? expectedReturn)
     {
         Name = name;
         MachType = machType;
@@ -20,4 +20,5 @@ public sealed class CreateMachineCommand
         MaintenceStartDate = maintenceStart;
         ExpectedReturnDate = expectedReturn;
     }
+
 }
