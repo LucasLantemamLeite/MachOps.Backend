@@ -5,9 +5,10 @@ using MachOps.Api.Configurations.App;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .RegisterHandlers()
     .RegisterQueries()
     .RegisterRepositories()
+    .RegisterHandlers()
+    .RegisterUseCases()
     .RegisterServices(builder.Configuration);
 
 builder.RegisterConfig();
