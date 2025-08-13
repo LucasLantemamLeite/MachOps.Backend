@@ -79,14 +79,14 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
         {
             start.Property(x => x.Value)
                 .HasColumnName("MaintenanceStartDate")
-                .HasColumnType("DateTime2");
+                .HasColumnType("Date");
         });
 
         builder.OwnsOne(x => x.ExpectedReturnDate, expected =>
         {
             expected.Property(x => x.Value)
                 .HasColumnName("ExpectedReturnDate")
-                .HasColumnType("DateTime");
+                .HasColumnType("Date");
         });
     }
 }
