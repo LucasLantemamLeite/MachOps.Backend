@@ -7,6 +7,8 @@ public static class AppConfig
         app.UseHttpsRedirection();
         app.UseRouting();
 
+        app.UseCors("FrontendCorsPolicy");
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

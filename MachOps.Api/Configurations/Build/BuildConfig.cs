@@ -7,6 +7,16 @@ public static class BuildConfig
     public static WebApplicationBuilder RegisterConfig(this WebApplicationBuilder builder)
     {
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("FrontendCorsPolicy", policy =>
+            {
+                policy.WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            });
+        });
+
         builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
         if (builder.Environment.IsDevelopment())
