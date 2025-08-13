@@ -1,4 +1,3 @@
-using MachOps.Domain.Enums.Machines;
 using MachOps.Domain.ValueObjects.Base;
 using MachOps.Domain.ValueObjects.Validations;
 
