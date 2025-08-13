@@ -13,7 +13,7 @@ public sealed class MachineQuery : IMachineQuery
 
     public MachineQuery(IDbConnection connection) => _connection = connection;
 
-    private const string SqlSelectBase = "SELECT Id, Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenceStartDate, ExpectedReturnDate FROM [Machines]";
+    private const string SqlSelectBase = "SELECT Id, Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenanceStartDate, ExpectedReturnDate FROM [Machines]";
 
     public async Task<List<MachineEntity>> GetAllAsync()
     {

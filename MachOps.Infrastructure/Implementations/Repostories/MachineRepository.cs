@@ -14,9 +14,9 @@ public sealed class MachineRepository : IMachineRepository
     public async Task<int> CreateAsync(MachineEntity machine)
     {
         var sql = @"INSERT INTO [Machines] 
-        (Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenceStartDate, ExpectedReturnDate)
+        (Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenanceStartDate, ExpectedReturnDate)
         VALUES
-        (@Name, @MachType, @Status, @Location, @CreateAt, @UpdateAt, @Description, @MaintenceStartDate, @ExpectedReturnDate)
+        (@Name, @MachType, @Status, @Location, @CreateAt, @UpdateAt, @Description, @MaintenanceStartDate, @ExpectedReturnDate)
         SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
         var parameters = new
@@ -28,7 +28,7 @@ public sealed class MachineRepository : IMachineRepository
             CreateAt = machine.CreateAt.Value,
             UpdateAt = machine.UpdateAt.Value,
             Description = machine.Description.Value,
-            MaintenceStartDate = machine.MaintenanceStartDate.Value,
+            MaintenanceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
 
@@ -47,7 +47,7 @@ public sealed class MachineRepository : IMachineRepository
 
     public async Task<int> UpdateAsync(MachineEntity machine)
     {
-        var sql = @"UPDATE [Machines] SET Name = @Name, MachType = @MachType, Location = @Location, CreateAt = @CreateAt, UpdateAt = @UpdateAt, Description = @Description, MaintenceStartDate = @MaintenceStartDate WHERE Id = @Id";
+        var sql = @"UPDATE [Machines] SET Name = @Name, MachType = @MachType, Location = @Location, CreateAt = @CreateAt, UpdateAt = @UpdateAt, Description = @Description, MaintenanceStartDate = @MaintenanceStartDate WHERE Id = @Id";
 
         var parameters = new
         {
@@ -59,7 +59,7 @@ public sealed class MachineRepository : IMachineRepository
             CreateAt = machine.CreateAt.Value,
             UpdateAt = machine.UpdateAt.Value,
             Description = machine.Description.Value,
-            MaintenceStartDate = machine.MaintenanceStartDate.Value,
+            MaintenanceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
 
