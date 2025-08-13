@@ -24,7 +24,7 @@ namespace MachOps.Migrations.Migrations
                     CreateAt = table.Column<DateTime>(type: "Datetime", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "DateTime2", nullable: false),
                     Description = table.Column<string>(type: "Nvarchar(100)", nullable: true),
-                    MaintenceStartDate = table.Column<DateTime>(type: "DateTime2", nullable: true),
+                    MaintenanceStartDate = table.Column<DateTime>(type: "DateTime2", nullable: true),
                     ExpectedReturnDate = table.Column<DateTime>(type: "DateTime", nullable: true)
                 },
                 constraints: table =>
