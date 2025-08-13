@@ -2,11 +2,11 @@ using MachOps.Domain.ValueObjects.Base;
 
 namespace MachOps.Domain.ValueObjects.Machines;
 
-public sealed class MaintenceStartDate : ValueObject
+public sealed class MaintenanceStartDate : ValueObject
 {
     public DateTime? Value { get; }
 
-    public MaintenceStartDate(DateTime? start) => Value = start;
+    public MaintenanceStartDate(DateTime? start) => Value = start;
 
-    private MaintenceStartDate() { }
+    private MaintenanceStartDate() { }
 }
