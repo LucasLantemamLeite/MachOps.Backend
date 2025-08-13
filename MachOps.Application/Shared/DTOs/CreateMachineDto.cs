@@ -22,8 +22,8 @@ public sealed class CreateMachineDto
     [MaxLength(100, ErrorMessage = "O campo de Description deve ter menos de 100 caracteres.")]
     public string? Description { get; init; }
 
-    [DataType(DataType.DateTime, ErrorMessage = "MaintenceStartDate Inválido.")]
-    public DateTime? MaintenceStartDate { get; init; }
+    [DataType(DataType.DateTime, ErrorMessage = "MaintenanceStartDate Inválido.")]
+    public DateTime? MaintenanceStartDate { get; init; }
 
     [DataType(DataType.DateTime, ErrorMessage = "ExpectedReturnDate Inválido.")]
     public DateTime? ExpectedReturnDate { get; init; }

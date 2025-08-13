@@ -30,7 +30,7 @@ public sealed class FakeMachineQuery : IMachineQuery
 
     public Task<List<MachineEntity>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
     {
-        var machines = _machines.Where(x => x.MaintenceStartDate.Value >= maintenanceStart && x.ExpectedReturnDate.Value < expectReturn).ToList();
+        var machines = _machines.Where(x => x.MaintenanceStartDate.Value >= maintenanceStart && x.ExpectedReturnDate.Value < expectReturn).ToList();
 
         return Task.FromResult(machines);
     }
@@ -44,7 +44,7 @@ public sealed class FakeMachineQuery : IMachineQuery
 
     public Task<List<MachineEntity>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
     {
-        var machines = _machines.Where(x => x.MaintenceStartDate.Value == maintenanceStart).ToList();
+        var machines = _machines.Where(x => x.MaintenanceStartDate.Value == maintenanceStart).ToList();
 
         return Task.FromResult(machines);
     }

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using MachOps.Domain.Entities;
+using MachOps.Domain.ValueObjects.Machines;
 using MachOps.Test.Fakes.Base;
 using MachOps.Test.Fakes.Repositories;
 
@@ -23,7 +24,7 @@ public sealed class FakeMachineRepositoryTest : FakeBaseDb
             create: new DateTime(2022, 10, 6),
             update: new DateTime(2023, 1, 24),
             description: null,
-            maintenceStart: new DateTime(2023, 06, 21),
+            maintenanceStart: new DateTime(2023, 06, 21),
             expectedReturn: new DateTime(2024, 2, 6));
 
         var row = await _repository.CreateAsync(machine);
@@ -45,7 +46,7 @@ public sealed class FakeMachineRepositoryTest : FakeBaseDb
             create: new DateTime(2025, 1, 15),
             update: new DateTime(2025, 6, 10),
             description: null,
-            maintenceStart: new DateTime(2025, 8, 1),
+            maintenanceStart: new DateTime(2025, 8, 1),
             expectedReturn: new DateTime(2025, 8, 5)
         );
 
@@ -68,7 +69,7 @@ public sealed class FakeMachineRepositoryTest : FakeBaseDb
             create: new DateTime(2025, 1, 15),
             update: new DateTime(2025, 6, 10),
             description: "Carregando Caixotes",
-            maintenceStart: null,
+            maintenanceStart: null,
             expectedReturn: null
         );
 

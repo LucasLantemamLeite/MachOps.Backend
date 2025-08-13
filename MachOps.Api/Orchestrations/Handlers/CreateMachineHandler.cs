@@ -22,7 +22,7 @@ public sealed class CreateMachineHandler : ICreateMachineHandler
             machinedto.Status,
             machinedto.Location,
             machinedto.Description,
-            machinedto.MaintenceStartDate,
+            machinedto.MaintenanceStartDate,
             machinedto.ExpectedReturnDate
         );
 

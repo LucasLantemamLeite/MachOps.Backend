@@ -28,7 +28,7 @@ public sealed class MachineRepository : IMachineRepository
             CreateAt = machine.CreateAt.Value,
             UpdateAt = machine.UpdateAt.Value,
             Description = machine.Description.Value,
-            MaintenceStartDate = machine.MaintenceStartDate.Value,
+            MaintenceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
 
@@ -59,7 +59,7 @@ public sealed class MachineRepository : IMachineRepository
             CreateAt = machine.CreateAt.Value,
             UpdateAt = machine.UpdateAt.Value,
             Description = machine.Description.Value,
-            MaintenceStartDate = machine.MaintenceStartDate.Value,
+            MaintenceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
 

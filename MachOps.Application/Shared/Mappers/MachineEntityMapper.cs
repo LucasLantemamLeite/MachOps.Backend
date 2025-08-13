@@ -36,7 +36,7 @@ public static class MachineEntityMapper
             machineEntity.CreateAt.Value,
             machineEntity.UpdateAt.Value,
             machineEntity.Description.Value,
-            machineEntity.MaintenceStartDate?.Value,
+            machineEntity.MaintenanceStartDate?.Value,
             machineEntity.ExpectedReturnDate?.Value
         );
     }

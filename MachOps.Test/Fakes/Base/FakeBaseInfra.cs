@@ -15,7 +15,7 @@ public abstract class FakeBaseDb
             create: new DateTime(2025, 1, 15),
             update: new DateTime(2025, 6, 10),
             description: null,
-            maintenceStart: new DateTime(2025, 8, 1),
+            maintenanceStart: new DateTime(2025, 8, 1),
             expectedReturn: new DateTime(2025, 8, 5)
         ),
         new(
@@ -27,7 +27,7 @@ public abstract class FakeBaseDb
             create: new DateTime(2024, 12, 1),
             update: new DateTime(2025, 7, 25),
             description: "Em manutenção crítica.",
-            maintenceStart: new DateTime(2025, 7, 20),
+            maintenanceStart: new DateTime(2025, 7, 20),
             expectedReturn: new DateTime(2025, 8, 10)
         ),
         new(
@@ -39,7 +39,7 @@ public abstract class FakeBaseDb
             create: new DateTime(2025, 3, 3),
             update: new DateTime(2025, 7, 30),
             description: "Utilizada para limpeza geral.",
-            maintenceStart: null,
+            maintenanceStart: null,
             expectedReturn: null
         ),
         new(
@@ -51,7 +51,7 @@ public abstract class FakeBaseDb
             create: new DateTime(2025, 2, 5),
             update: new DateTime(2025, 6, 20),
             description: "Auxiliando no transporte de cargas.",
-            maintenceStart: new DateTime(2025, 7, 15),
+            maintenanceStart: new DateTime(2025, 7, 15),
             expectedReturn: new DateTime(2025, 7, 18)
         )
     };

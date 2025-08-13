@@ -75,10 +75,10 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .HasColumnType("Nvarchar(100)");
         });
 
-        builder.OwnsOne(x => x.MaintenceStartDate, start =>
+        builder.OwnsOne(x => x.MaintenanceStartDate, start =>
         {
             start.Property(x => x.Value)
-                .HasColumnName("MaintenceStartDate")
+                .HasColumnName("MaintenanceStartDate")
                 .HasColumnType("DateTime2");
         });
 

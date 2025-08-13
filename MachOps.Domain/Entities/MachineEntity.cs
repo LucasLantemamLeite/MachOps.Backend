@@ -12,12 +12,12 @@ public sealed class MachineEntity : Entity
     public CreateAt CreateAt { get; private set; }
     public UpdateAt UpdateAt { get; private set; }
     public Description Description { get; private set; }
-    public MaintenceStartDate MaintenceStartDate { get; private set; }
+    public MaintenanceStartDate MaintenanceStartDate { get; private set; }
     public ExpectedReturnDate ExpectedReturnDate { get; private set; }
 
     public void ChangeId(int id) => Id = id;
 
-    public MachineEntity(string name, int machType, string? location, int status, string? description, DateTime? maintenceStart, DateTime? expectedReturn)
+    public MachineEntity(string name, int machType, string? location, int status, string? description, DateTime? maintenanceStart, DateTime? expectedReturn)
     {
         Name = new Name(name);
         MachType = new MachType(machType);
@@ -26,11 +26,11 @@ public sealed class MachineEntity : Entity
         CreateAt = new CreateAt();
         UpdateAt = new UpdateAt();
         Description = new Description(description);
-        MaintenceStartDate = new MaintenceStartDate(maintenceStart);
+        MaintenanceStartDate = new MaintenanceStartDate(maintenanceStart);
         ExpectedReturnDate = new ExpectedReturnDate(expectedReturn);
     }
 
-    public MachineEntity(int id, string name, int machType, int status, string? location, DateTime create, DateTime update, string? description, DateTime? maintenceStart, DateTime? expectedReturn) : base(id)
+    public MachineEntity(int id, string name, int machType, int status, string? location, DateTime create, DateTime update, string? description, DateTime? maintenanceStart, DateTime? expectedReturn) : base(id)
     {
         Name = new Name(name);
         MachType = new MachType(machType);
@@ -39,7 +39,7 @@ public sealed class MachineEntity : Entity
         CreateAt = new CreateAt(create);
         UpdateAt = new UpdateAt(update);
         Description = new Description(description);
-        MaintenceStartDate = new MaintenceStartDate(maintenceStart);
+        MaintenanceStartDate = new MaintenanceStartDate(maintenanceStart);
         ExpectedReturnDate = new ExpectedReturnDate(expectedReturn);
     }
 

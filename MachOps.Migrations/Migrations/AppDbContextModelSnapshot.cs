@@ -123,14 +123,14 @@ namespace MachOps.Migrations.Migrations
                                 .HasForeignKey("MachineEntityId");
                         });
 
-                    b.OwnsOne("MachOps.Domain.ValueObjects.Machines.MaintenceStartDate", "MaintenceStartDate", b1 =>
+                    b.OwnsOne("MachOps.Domain.ValueObjects.Machines.MaintenanceStartDate", "MaintenanceStartDate", b1 =>
                         {
                             b1.Property<int>("MachineEntityId")
                                 .HasColumnType("Int");
 
                             b1.Property<DateTime?>("Value")
                                 .HasColumnType("DateTime2")
-                                .HasColumnName("MaintenceStartDate");
+                                .HasColumnName("MaintenanceStartDate");
 
                             b1.HasKey("MachineEntityId");
 
@@ -210,7 +210,7 @@ namespace MachOps.Migrations.Migrations
                     b.Navigation("MachType")
                         .IsRequired();
 
-                    b.Navigation("MaintenceStartDate")
+                    b.Navigation("MaintenanceStartDate")
                         .IsRequired();
 
                     b.Navigation("Name")
