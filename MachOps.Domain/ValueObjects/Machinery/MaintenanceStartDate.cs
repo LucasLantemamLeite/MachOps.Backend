@@ -1,6 +1,6 @@
 using MachOps.Domain.ValueObjects.Base;
 
-namespace MachOps.Domain.ValueObjects.Machines;
+namespace MachOps.Domain.ValueObjects.Machinery;
 
 public sealed class MaintenanceStartDate : ValueObject
 {
