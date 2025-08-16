@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MachOps.Migrations.Data.Mapping;
 
-public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
+public sealed class MachineryMap : IEntityTypeConfiguration<Machinery>
 {
     public void Configure(EntityTypeBuilder<Machinery> builder)
     {
