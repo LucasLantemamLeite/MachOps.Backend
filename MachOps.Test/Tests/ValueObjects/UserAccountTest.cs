@@ -142,8 +142,10 @@ public sealed class UserAccountTest
 
     [Theory]
     [InlineData(1)]
-    [InlineData(2)]
     [InlineData(3)]
+    [InlineData(7)]
+    [InlineData(31)]
+    [InlineData(63)]
     public void Role_WithValidInt_ShouldNotThrowEnumFlagsException(int role)
     {
         var ex = Record.Exception(() => new Role(role));
@@ -151,8 +153,8 @@ public sealed class UserAccountTest
     }
 
     [Theory]
-    [InlineData(4)]
-    [InlineData(5)]
+    [InlineData(64)]
+    [InlineData(65)]
     [InlineData(-1)]
     [InlineData(999)]
     public void Role_WithInvalidInt_ShouldThrowEnumFlagsException(int role)
