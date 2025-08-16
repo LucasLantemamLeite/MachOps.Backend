@@ -55,7 +55,7 @@ public sealed class MachineryMap : IEntityTypeConfiguration<Machinery>
         builder.OwnsOne(x => x.CreatedAt, create =>
         {
             create.Property(x => x.Value)
-                .HasColumnName("CreateAt")
+                .HasColumnName("CreatedAt")
                 .HasColumnType("Datetime")
                 .IsRequired();
         });
@@ -63,7 +63,7 @@ public sealed class MachineryMap : IEntityTypeConfiguration<Machinery>
         builder.OwnsOne(x => x.LastUpdatedAt, update =>
         {
             update.Property(x => x.Value)
-                .HasColumnName("UpdateAt")
+                .HasColumnName("LastUpdatedAt")
                 .HasColumnType("DateTime2")
                 .IsRequired();
         });
