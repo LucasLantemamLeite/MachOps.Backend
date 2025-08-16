@@ -3,7 +3,7 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Application.Shared.Mappers;
 
-public static class MachinaryEntityMapper
+public static class MachinaryMapper
 {
     public static Machinery ToSingleMachinery(this MachineryRaw machineryRaw)
     {
