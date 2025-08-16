@@ -29,15 +29,15 @@ public static class MachinaryEntityMapper
         return new MachineryRaw
         (
             machinery.Id,
-            machinery.MachineryName.Value,
-            (int)machinery.MachineryType.Value,
-            (int)machinery.MachineryStatus.Value,
-            machinery.MachineryLocation.Value,
-            machinery.MachineryCreatedAt.Value,
-            machinery.MachineryLastUpdatedAt.Value,
-            machinery.MachineryDescription.Value,
-            machinery.MaintenanceStartDate?.Value,
-            machinery.ExpectedReturnDate?.Value
+            machinery.Name.Value,
+            (int)machinery.MachType.Value,
+            (int)machinery.Status.Value,
+            machinery.Location.Value,
+            machinery.CreatedAt.Value,
+            machinery.LastUpdatedAt.Value,
+            machinery.Description.Value,
+            machinery.MaintenanceStart?.Value,
+            machinery.MaintenanceReturn?.Value
         );
     }
 

@@ -11,7 +11,7 @@ public sealed class FakeMachineryRepository : IMachineryRepository
 
     public Task<int> CreateAsync(Machinery machine)
     {
-        var existingMachine = _machines.FirstOrDefault(x => x.MachineryName.Value == machine.MachineryName.Value);
+        var existingMachine = _machines.FirstOrDefault(x => x.Name.Value == machine.Name.Value);
 
         if (existingMachine is not null)
             return Task.FromResult(0);

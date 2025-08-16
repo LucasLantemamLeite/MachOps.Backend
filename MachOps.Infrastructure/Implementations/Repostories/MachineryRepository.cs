@@ -21,15 +21,15 @@ public sealed class MachineryRepository : IMachineryRepository
 
         var parameters = new
         {
-            Name = machine.MachineryName.Value,
-            MachType = machine.MachineryType.Value,
-            Status = machine.MachineryStatus.Value,
-            Location = machine.MachineryLocation.Value,
-            CreatedAt = machine.MachineryCreatedAt.Value,
-            UpdatedAt = machine.MachineryLastUpdatedAt.Value,
-            Description = machine.MachineryDescription.Value,
-            MaintenanceStartDate = machine.MaintenanceStartDate.Value,
-            ExpectedReturnDate = machine.ExpectedReturnDate.Value
+            Name = machine.Name.Value,
+            MachType = machine.MachType.Value,
+            Status = machine.Status.Value,
+            Location = machine.Location.Value,
+            CreatedAt = machine.CreatedAt.Value,
+            UpdatedAt = machine.LastUpdatedAt.Value,
+            Description = machine.Description.Value,
+            MaintenanceStartDate = machine.MaintenanceStart.Value,
+            ExpectedReturnDate = machine.MaintenanceReturn.Value
         };
 
         var id = await _connection.ExecuteScalarAsync<int>(sql, parameters);
@@ -52,15 +52,15 @@ public sealed class MachineryRepository : IMachineryRepository
         var parameters = new
         {
             machine.Id,
-            Name = machine.MachineryName.Value,
-            MachType = machine.MachineryType.Value,
-            Status = machine.MachineryStatus.Value,
-            Location = machine.MachineryLocation.Value,
-            CreateAt = machine.MachineryCreatedAt.Value,
-            UpdateAt = machine.MachineryLastUpdatedAt.Value,
-            Description = machine.MachineryDescription.Value,
-            MaintenanceStartDate = machine.MaintenanceStartDate.Value,
-            ExpectedReturnDate = machine.ExpectedReturnDate.Value
+            Name = machine.Name.Value,
+            MachType = machine.MachType.Value,
+            Status = machine.Status.Value,
+            Location = machine.Location.Value,
+            CreateAt = machine.CreatedAt.Value,
+            UpdateAt = machine.LastUpdatedAt.Value,
+            Description = machine.Description.Value,
+            MaintenanceStartDate = machine.MaintenanceStart.Value,
+            ExpectedReturnDate = machine.MaintenanceReturn.Value
         };
 
         return await _connection.ExecuteAsync(sql, parameters);

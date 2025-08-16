@@ -28,7 +28,7 @@ public sealed class FakeMachineryRepositoryTest : FakeBaseDb
         var row = await _repository.CreateAsync(machine);
 
         Assert.Equal(1, row);
-        Assert.Contains(machines, x => x.MachineryName.Value == machine.MachineryName.Value);
+        Assert.Contains(machines, x => x.Name.Value == machine.Name.Value);
     }
 
     [Fact]
@@ -74,6 +74,6 @@ public sealed class FakeMachineryRepositoryTest : FakeBaseDb
         var row = await _repository.UpdateAsync(machine);
 
         Assert.Equal(1, row);
-        Assert.Contains(machines, x => x.MachineryName.Value == machine.MachineryName.Value);
+        Assert.Contains(machines, x => x.Name.Value == machine.Name.Value);
     }
 }

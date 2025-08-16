@@ -16,7 +16,7 @@ public sealed class FakeMachineryQuery : IMachineryQuery
 
     public Task<List<Machinery>> GetByExpectedReturnDateAsync(DateTime expectReturn)
     {
-        var machines = _machines.Where(x => x.ExpectedReturnDate.Value == expectReturn).ToList();
+        var machines = _machines.Where(x => x.MaintenanceReturn.Value == expectReturn).ToList();
 
         return Task.FromResult(machines);
     }
@@ -30,35 +30,35 @@ public sealed class FakeMachineryQuery : IMachineryQuery
 
     public Task<List<Machinery>> GetByIntervalAsync(DateTime maintenanceStart, DateTime expectReturn)
     {
-        var machines = _machines.Where(x => x.MaintenanceStartDate.Value >= maintenanceStart && x.ExpectedReturnDate.Value < expectReturn).ToList();
+        var machines = _machines.Where(x => x.MaintenanceStart.Value >= maintenanceStart && x.MaintenanceReturn.Value < expectReturn).ToList();
 
         return Task.FromResult(machines);
     }
 
     public Task<List<Machinery>> GetByTypeAsync(int type)
     {
-        var machines = _machines.Where(x => (int)x.MachineryType.Value == type).ToList();
+        var machines = _machines.Where(x => (int)x.MachType.Value == type).ToList();
 
         return Task.FromResult(machines);
     }
 
     public Task<List<Machinery>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
     {
-        var machines = _machines.Where(x => x.MaintenanceStartDate.Value == maintenanceStart).ToList();
+        var machines = _machines.Where(x => x.MaintenanceStart.Value == maintenanceStart).ToList();
 
         return Task.FromResult(machines);
     }
 
     public Task<Machinery?> GetByNameAsync(string name)
     {
-        var machine = _machines.FirstOrDefault(x => x.MachineryName.Value == name);
+        var machine = _machines.FirstOrDefault(x => x.Name.Value == name);
 
         return Task.FromResult(machine);
     }
 
     public Task<List<Machinery>> GetByStatusAsync(int status)
     {
-        var machines = _machines.Where(x => (int)x.MachineryStatus.Value == status).ToList();
+        var machines = _machines.Where(x => (int)x.Status.Value == status).ToList();
 
         return Task.FromResult(machines);
     }

@@ -56,7 +56,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByMaintenceStartDateAsync(date);
 
         Assert.NotNull(result);
-        Assert.Contains(machines, x => x.MaintenanceStartDate.Value == date);
+        Assert.Contains(machines, x => x.MaintenanceStart.Value == date);
     }
 
     [Theory]
@@ -70,7 +70,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByMaintenceStartDateAsync(date);
 
         Assert.Empty(result);
-        Assert.DoesNotContain(machines, x => x.MaintenanceStartDate.Value == date);
+        Assert.DoesNotContain(machines, x => x.MaintenanceStart.Value == date);
     }
 
 
@@ -85,7 +85,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByExpectedReturnDateAsync(date);
 
         Assert.NotNull(result);
-        Assert.Contains(machines, x => x.ExpectedReturnDate.Value == date);
+        Assert.Contains(machines, x => x.MaintenanceReturn.Value == date);
     }
 
     [Theory]
@@ -99,7 +99,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByExpectedReturnDateAsync(date);
 
         Assert.Empty(result);
-        Assert.DoesNotContain(machines, x => x.ExpectedReturnDate.Value == date);
+        Assert.DoesNotContain(machines, x => x.MaintenanceReturn.Value == date);
     }
 
     [Fact]
@@ -111,7 +111,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByIntervalAsync(start, end);
 
         Assert.NotEmpty(result);
-        Assert.Contains(machines, x => x.MaintenanceStartDate.Value >= start && x.ExpectedReturnDate.Value < end);
+        Assert.Contains(machines, x => x.MaintenanceStart.Value >= start && x.MaintenanceReturn.Value < end);
         Assert.Single(result);
     }
 
@@ -124,7 +124,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByIntervalAsync(start, end);
 
         Assert.Empty(result);
-        Assert.DoesNotContain(machines, x => x.MaintenanceStartDate.Value >= start && x.ExpectedReturnDate.Value < end);
+        Assert.DoesNotContain(machines, x => x.MaintenanceStart.Value >= start && x.MaintenanceReturn.Value < end);
     }
 
     [Theory]
@@ -137,7 +137,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var result = await _query.GetByNameAsync(name);
 
         Assert.NotNull(result);
-        Assert.Contains(machines, x => x.MachineryName.Value == name);
+        Assert.Contains(machines, x => x.Name.Value == name);
     }
 
     [Theory]
@@ -150,7 +150,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var machine = await _query.GetByNameAsync(name);
 
         Assert.Null(machine);
-        Assert.DoesNotContain(machines, x => x.MachineryName.Value == name);
+        Assert.DoesNotContain(machines, x => x.Name.Value == name);
     }
 
     [Theory]
@@ -163,7 +163,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var machines = await _query.GetByTypeAsync(type);
 
         Assert.NotEmpty(machines);
-        Assert.Contains(machines, x => (int)x.MachineryType.Value == type);
+        Assert.Contains(machines, x => (int)x.MachType.Value == type);
     }
 
     [Theory]
@@ -175,7 +175,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var machines = await _query.GetByTypeAsync(type);
 
         Assert.Empty(machines);
-        Assert.DoesNotContain(machines, x => (int)x.MachineryType.Value == type);
+        Assert.DoesNotContain(machines, x => (int)x.MachType.Value == type);
     }
 
     [Theory]
@@ -186,7 +186,7 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var machines = await _query.GetByStatusAsync(type);
 
         Assert.NotEmpty(machines);
-        Assert.Contains(machines, x => (int)x.MachineryStatus.Value == type);
+        Assert.Contains(machines, x => (int)x.Status.Value == type);
     }
 
     [Theory]
@@ -196,6 +196,6 @@ public sealed class FakeMachineryQueryTest : FakeBaseDb
         var machines = await _query.GetByStatusAsync(type);
 
         Assert.Empty(machines);
-        Assert.DoesNotContain(machines, x => (int)x.MachineryStatus.Value == type);
+        Assert.DoesNotContain(machines, x => (int)x.Status.Value == type);
     }
 }
