@@ -5,13 +5,13 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Infrastructure.Implementations.Repositories;
 
-public sealed class MachineRepository : IMachineRepository
+public sealed class MachineryRepository : IMachineryRepository
 {
     private readonly IDbConnection _connection;
 
-    public MachineRepository(IDbConnection connection) => _connection = connection;
+    public MachineryRepository(IDbConnection connection) => _connection = connection;
 
-    public async Task<int> CreateAsync(MachineEntity machine)
+    public async Task<int> CreateAsync(Machinery machine)
     {
         var sql = @"INSERT INTO [Machines] 
         (Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenanceStartDate, ExpectedReturnDate)
@@ -21,13 +21,13 @@ public sealed class MachineRepository : IMachineRepository
 
         var parameters = new
         {
-            Name = machine.Name.Value,
-            MachType = machine.MachType.Value,
-            Status = machine.Status.Value,
-            Location = machine.Location.Value,
-            CreateAt = machine.CreateAt.Value,
-            UpdateAt = machine.UpdateAt.Value,
-            Description = machine.Description.Value,
+            Name = machine.MachineryName.Value,
+            MachType = machine.MachineryType.Value,
+            Status = machine.MachineryStatus.Value,
+            Location = machine.MachineryLocation.Value,
+            CreatedAt = machine.MachineryCreatedAt.Value,
+            UpdatedAt = machine.MachineryLastUpdatedAt.Value,
+            Description = machine.MachineryDescription.Value,
             MaintenanceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
@@ -37,7 +37,7 @@ public sealed class MachineRepository : IMachineRepository
         return id;
     }
 
-    public async Task<int> DeleteAsync(MachineEntity machine)
+    public async Task<int> DeleteAsync(Machinery machine)
     {
         var sql = @"DELETE FROM [Machines] WHERE Id = @Id";
         var parameters = new { machine.Id };
@@ -45,20 +45,20 @@ public sealed class MachineRepository : IMachineRepository
         return await _connection.ExecuteAsync(sql, parameters);
     }
 
-    public async Task<int> UpdateAsync(MachineEntity machine)
+    public async Task<int> UpdateAsync(Machinery machine)
     {
         var sql = @"UPDATE [Machines] SET Name = @Name, MachType = @MachType, Location = @Location, CreateAt = @CreateAt, UpdateAt = @UpdateAt, Description = @Description, MaintenanceStartDate = @MaintenanceStartDate WHERE Id = @Id";
 
         var parameters = new
         {
             machine.Id,
-            Name = machine.Name.Value,
-            MachType = machine.MachType.Value,
-            Status = machine.Status.Value,
-            Location = machine.Location.Value,
-            CreateAt = machine.CreateAt.Value,
-            UpdateAt = machine.UpdateAt.Value,
-            Description = machine.Description.Value,
+            Name = machine.MachineryName.Value,
+            MachType = machine.MachineryType.Value,
+            Status = machine.MachineryStatus.Value,
+            Location = machine.MachineryLocation.Value,
+            CreateAt = machine.MachineryCreatedAt.Value,
+            UpdateAt = machine.MachineryLastUpdatedAt.Value,
+            Description = machine.MachineryDescription.Value,
             MaintenanceStartDate = machine.MaintenanceStartDate.Value,
             ExpectedReturnDate = machine.ExpectedReturnDate.Value
         };
