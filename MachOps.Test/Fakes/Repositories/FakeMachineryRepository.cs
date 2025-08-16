@@ -3,15 +3,15 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Test.Fakes.Repositories;
 
-public sealed class FakeMachineRepository : IMachineRepository
+public sealed class FakeMachineryRepository : IMachineryRepository
 {
-    private readonly List<MachineEntity> _machines;
+    private readonly List<Machinery> _machines;
 
-    public FakeMachineRepository(List<MachineEntity> machines) => _machines = machines;
+    public FakeMachineryRepository(List<Machinery> machines) => _machines = machines;
 
-    public Task<int> CreateAsync(MachineEntity machine)
+    public Task<int> CreateAsync(Machinery machine)
     {
-        var existingMachine = _machines.FirstOrDefault(x => x.Name.Value == machine.Name.Value);
+        var existingMachine = _machines.FirstOrDefault(x => x.MachineryName.Value == machine.MachineryName.Value);
 
         if (existingMachine is not null)
             return Task.FromResult(0);
@@ -21,7 +21,7 @@ public sealed class FakeMachineRepository : IMachineRepository
         return Task.FromResult(1);
     }
 
-    public Task<int> DeleteAsync(MachineEntity machine)
+    public Task<int> DeleteAsync(Machinery machine)
     {
         var existingMachine = _machines.FirstOrDefault(x => x.Id == machine.Id);
 
@@ -33,7 +33,7 @@ public sealed class FakeMachineRepository : IMachineRepository
         return Task.FromResult(1);
     }
 
-    public Task<int> UpdateAsync(MachineEntity machine)
+    public Task<int> UpdateAsync(Machinery machine)
     {
         var index = _machines.FindIndex(x => x.Id == machine.Id);
 
