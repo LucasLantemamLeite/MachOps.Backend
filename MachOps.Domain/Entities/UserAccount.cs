@@ -14,12 +14,14 @@ public sealed class UserAccount : Entity
     public Active Active { get; private set; }
     public Role Role { get; private set; }
 
-    public UserAccount(string name, string email, string password, string phone)
+    public UserAccount(string name, string email, string password, string phone, int role)
     {
         Name = new Name(name);
         Email = new Email(email);
         Password = new Password(password);
         Phone = new Phone(phone);
+        Active = new Active();
+        Role = new Role(role);
     }
 
     public UserAccount(int id, string name, string email, string password, string phone, DateTime create, bool active, int role) : base(id)
@@ -33,5 +35,5 @@ public sealed class UserAccount : Entity
         Role = new Role(role);
     }
 
-    public UserAccount() { }
+    private UserAccount() { }
 }
