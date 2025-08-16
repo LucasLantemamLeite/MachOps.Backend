@@ -1,3 +1,4 @@
+using MachOps.Application.Authentication;
 using MachOps.Application.Interfaces.UseCases.Users;
 using MachOps.Application.Shared.Commands;
 using MachOps.Application.Shared.ResultCases;
@@ -28,7 +29,7 @@ public sealed class CreateUserAccountUseCase(Queries query, Repositories reposit
             if (!Enum.TryParse<ERole>(command.Role, out var roleAsEnum))
                 return Result<UserAccount>.Fail("Role inválido.");
 
-            var userAccount = new UserAccount(command.Name, command.Email, command.Password, command.Phone, (int)roleAsEnum);
+            var userAccount = new UserAccount(command.Name, command.Email, command.Password.GenerateHash(), command.Phone, (int)roleAsEnum);
 
             var id = await Repository.UserRepository.CreateAsync(userAccount);
 
