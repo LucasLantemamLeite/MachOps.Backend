@@ -7,7 +7,7 @@ public static class RepositoryInjection
 {
     public static IServiceCollection RegisterRepositories(this IServiceCollection service)
     {
-        service.AddScoped<IMachineRepository, MachineRepository>();
+        service.AddScoped<IMachineryRepository, MachineryRepository>();
 
         return service;
     }
