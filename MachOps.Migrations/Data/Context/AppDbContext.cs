@@ -7,7 +7,7 @@ public sealed class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<MachineEntity> Machines { get; set; }
+    public DbSet<Machinery> Machines { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 }

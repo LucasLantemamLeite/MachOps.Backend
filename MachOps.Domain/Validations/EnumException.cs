@@ -1,9 +1,7 @@
 namespace MachOps.Domain.ValueObjects.Validations;
 
-public sealed class EnumException : Exception
+public sealed class EnumException(string message) : Exception(message)
 {
-    public EnumException(string message) : base(message) { }
-
     public static void ThrowIfNotDefined<T>(int type, string message) where T : Enum
     {
         if (!Enum.IsDefined(typeof(T), type))

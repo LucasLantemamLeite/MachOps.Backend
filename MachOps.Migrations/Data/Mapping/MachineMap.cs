@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MachOps.Migrations.Data.Mapping;
 
-public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
+public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
 {
-    public void Configure(EntityTypeBuilder<MachineEntity> builder)
+    public void Configure(EntityTypeBuilder<Machinery> builder)
     {
         builder.ToTable("Machines");
 
@@ -18,7 +18,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
             .UseIdentityColumn()
             .ValueGeneratedOnAdd();
 
-        builder.OwnsOne(x => x.Name, name =>
+        builder.OwnsOne(x => x.MachineryName, name =>
         {
             name.Property(x => x.Value)
                 .HasColumnName("Name")
@@ -29,7 +29,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .IsUnique();
         });
 
-        builder.OwnsOne(x => x.MachType, machType =>
+        builder.OwnsOne(x => x.MachineryType, machType =>
         {
             machType.Property(x => x.Value)
                 .HasColumnName("MachType")
@@ -37,7 +37,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.Status, status =>
+        builder.OwnsOne(x => x.MachineryStatus, status =>
         {
             status.Property(x => x.Value)
                 .HasColumnName("Status")
@@ -45,14 +45,14 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.Location, location =>
+        builder.OwnsOne(x => x.MachineryLocation, location =>
         {
             location.Property(x => x.Value)
                 .HasColumnName("Location")
                 .HasColumnType("Nvarchar(20)");
         });
 
-        builder.OwnsOne(x => x.CreateAt, create =>
+        builder.OwnsOne(x => x.MachineryCreatedAt, create =>
         {
             create.Property(x => x.Value)
                 .HasColumnName("CreateAt")
@@ -60,7 +60,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.UpdateAt, update =>
+        builder.OwnsOne(x => x.MachineryLastUpdatedAt, update =>
         {
             update.Property(x => x.Value)
                 .HasColumnName("UpdateAt")
@@ -68,7 +68,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<MachineEntity>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.Description, description =>
+        builder.OwnsOne(x => x.MachineryDescription, description =>
         {
             description.Property(x => x.Value)
                 .HasColumnName("Description")

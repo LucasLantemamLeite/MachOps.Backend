@@ -1,4 +1,4 @@
-using MachOps.Domain.ValueObjects.Machines;
+using MachOps.Domain.ValueObjects.Machinery;
 using MachOps.Domain.ValueObjects.Validations;
 
 namespace MachOps.Test.ValueObjects;
@@ -16,7 +16,7 @@ public sealed class ValueObjectsTest
     [InlineData("UC-5567")]
     public void Name_WithValidString_ShouldNotThrowDomainException(string name)
     {
-        var ex = Record.Exception(() => new Name(name));
+        var ex = Record.Exception(() => new MachineryName(name));
         Assert.Null(ex);
     }
 
@@ -27,7 +27,7 @@ public sealed class ValueObjectsTest
     [InlineData(null)]
     public void Name_WithEmptyStringOrNull_ShouldThrowDomainException(string name)
     {
-        var ex = Assert.Throws<DomainException>(() => new Name(name));
+        var ex = Assert.Throws<DomainException>(() => new MachineryName(name));
         Assert.NotNull(ex);
         Assert.Equal(NameNullOrEmptyMessage, ex.Message);
     }
@@ -40,7 +40,7 @@ public sealed class ValueObjectsTest
     [InlineData(null)]
     public void Description_WithAnyString_ShouldNotThrowDomainException(string description)
     {
-        var ex = Record.Exception(() => new Description(description));
+        var ex = Record.Exception(() => new MachineryDescription(description));
         Assert.Null(ex);
     }
 
@@ -52,7 +52,7 @@ public sealed class ValueObjectsTest
     [InlineData(null)]
     public void Location_WithAnyString_ShouldNotThrowDomainException(string location)
     {
-        var ex = Record.Exception(() => new Location(location));
+        var ex = Record.Exception(() => new MachineryLocation(location));
         Assert.Null(ex);
     }
 
@@ -65,7 +65,7 @@ public sealed class ValueObjectsTest
     [InlineData(6)]
     public void MachType_WithValidEnum_ShouldNotThrowEnumException(int machType)
     {
-        var ex = Record.Exception(() => new MachType(machType));
+        var ex = Record.Exception(() => new MachineryType(machType));
         Assert.Null(ex);
     }
 
@@ -75,7 +75,7 @@ public sealed class ValueObjectsTest
     [InlineData(-1)]
     public void MachType_WithInvalidEnum_ShouldThrowEnumException(int machType)
     {
-        var ex = Assert.Throws<EnumException>(() => new MachType(machType));
+        var ex = Assert.Throws<EnumException>(() => new MachineryType(machType));
         Assert.NotNull(ex);
         Assert.Equal(MachTypeInvalidMessage, ex.Message);
     }
@@ -86,7 +86,7 @@ public sealed class ValueObjectsTest
     [InlineData(3)]
     public void Status_WithValidEnum_ShouldNotThrowEnumException(int status)
     {
-        var ex = Record.Exception(() => new Status(status));
+        var ex = Record.Exception(() => new MachineryStatus(status));
         Assert.Null(ex);
     }
 
@@ -96,7 +96,7 @@ public sealed class ValueObjectsTest
     [InlineData(-1)]
     public void Status_WithInvalidEnum_ShouldThrowEnumException(int status)
     {
-        var ex = Assert.Throws<EnumException>(() => new Status(status));
+        var ex = Assert.Throws<EnumException>(() => new MachineryStatus(status));
         Assert.NotNull(ex);
         Assert.Equal(StatusInvalidMessage, ex.Message);
     }

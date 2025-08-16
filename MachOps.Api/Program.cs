@@ -8,7 +8,6 @@ builder.Services
     .RegisterQueries()
     .RegisterRepositories()
     .RegisterHandlers()
-    .RegisterUseCases()
     .RegisterServices(builder.Configuration);
 
 builder.RegisterConfig();
