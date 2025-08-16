@@ -1,4 +1,4 @@
-namespace MachOps.Domain.ValueObjects.Validations;
+namespace MachOps.Domain.Validations;
 
 public sealed class DomainException(string message) : Exception(message)
 {
