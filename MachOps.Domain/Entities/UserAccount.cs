@@ -14,12 +14,15 @@ public sealed class UserAccount : Entity
     public Active Active { get; private set; }
     public Role Role { get; private set; }
 
+    public void ChangeId(int id) => Id = id;
+
     public UserAccount(string name, string email, string password, string phone, int role)
     {
         Name = new Name(name);
         Email = new Email(email);
         Password = new Password(password);
         Phone = new Phone(phone);
+        CreatedAt = new CreatedAt();
         Active = new Active();
         Role = new Role(role);
     }
