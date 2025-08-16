@@ -4,7 +4,7 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Application.Interfaces.Handlers;
 
-public interface ICreateMachineHandler
+public interface ICreateMachineryHandler
 {
-    public Task<Result<MachineEntity>> Handle(CreateMachineDto machine_dto);
+    public Task<Result<Machinery>> Handle(CreateMachineryDto machine_dto);
 }
