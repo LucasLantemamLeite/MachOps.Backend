@@ -13,7 +13,7 @@ public sealed class CreateUserAccountDto
     public string Email { get; set; }
 
     [Required(ErrorMessage = "Senha do usuário é obrigatório.")]
-    [MaxLength(100, ErrorMessage = "Senha do usuário deve ter menos do que 100 caracteres.")]
+    [MaxLength(40, ErrorMessage = "Senha do usuário deve ter menos do que 40 caracteres.")]
     public string Password { get; set; }
 
     [Required(ErrorMessage = "Número de telefone do usuário é obrigatório.")]
