@@ -2,11 +2,11 @@ using MachOps.Domain.Entities.Base;
 
 namespace MachOps.Application.Shared.ResultCases;
 
-public sealed class Result<T> where T : Entity
+public sealed class Result<T>
 {
     public string? Message { get; }
     public bool Success { get; }
-    public T? Data { get; } = null;
+    public T? Data { get; } = default!;
 
     public Result(bool success, string? message = null, T? data = default)
     {
