@@ -1,4 +1,4 @@
-using MachOps.Domain.Validations.UserAccount;
+using MachOps.Domain.Validations;
 using MachOps.Domain.ValueObjects.Base;
 
 namespace MachOps.Domain.ValueObjects.UserAccount;
@@ -9,7 +9,7 @@ public sealed class UserAccountPhone : ValueObject
 
     public UserAccountPhone(string phone)
     {
-        PhoneRegexException.ThrowIfNotMatch(phone, "Phone não está em formato válido.");
+        PhoneRegexException.ThrowIfNotMatch(phone, "Phone inválido.");
         Value = phone;
     }
 }

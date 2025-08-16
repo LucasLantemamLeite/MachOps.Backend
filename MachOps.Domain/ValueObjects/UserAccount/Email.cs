@@ -1,4 +1,4 @@
-using MachOps.Domain.Validations.UserAccount;
+using MachOps.Domain.Validations;
 using MachOps.Domain.ValueObjects.Base;
 
 namespace MachOps.Domain.ValueObjects.UserAccount;
@@ -9,7 +9,7 @@ public sealed class UserAccountEmail : ValueObject
 
     public UserAccountEmail(string email)
     {
-        EmailRegexException.ThrowIfNotMatch(email, "Email não está em formato válido.");
+        EmailRegexException.ThrowIfNotMatch(email, "Email inválido.");
         Value = email;
     }
 }
