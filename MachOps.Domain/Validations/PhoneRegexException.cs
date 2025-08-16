@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace MachOps.Domain.Validations.UserAccount;
+namespace MachOps.Domain.Validations;
 
 public partial class PhoneRegexException(string message) : Exception(message)
 {

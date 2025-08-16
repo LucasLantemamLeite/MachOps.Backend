@@ -1,4 +1,4 @@
-namespace MachOps.Domain.Validations.UserAccount;
+namespace MachOps.Domain.Validations;
 
 public sealed class EnumFlagsException(string message) : Exception(message)
 {
