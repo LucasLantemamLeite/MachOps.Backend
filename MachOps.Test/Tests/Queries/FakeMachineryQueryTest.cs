@@ -3,12 +3,12 @@ using MachOps.Test.Fakes.Queries;
 
 namespace MachOps.Test.Queries;
 
-[Trait("Category", "FakeMachineQueryTest")]
-public sealed class FakeMachineQueryTest : FakeBaseDb
+[Trait("Category", "FakeMachineryQueryTest")]
+public sealed class FakeMachineryQueryTest : FakeBaseDb
 {
-    private readonly FakeMachineQuery _query;
+    private readonly FakeMachineryQuery _query;
 
-    public FakeMachineQueryTest() => _query = new FakeMachineQuery(machines);
+    public FakeMachineryQueryTest() => _query = new FakeMachineryQuery(machines);
 
     [Fact]
     public async Task All_WithAll_ShouldReturnIEnumerableOfMachineEntity()
@@ -137,7 +137,7 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
         var result = await _query.GetByNameAsync(name);
 
         Assert.NotNull(result);
-        Assert.Contains(machines, x => x.Name.Value == name);
+        Assert.Contains(machines, x => x.MachineryName.Value == name);
     }
 
     [Theory]
@@ -150,7 +150,7 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
         var machine = await _query.GetByNameAsync(name);
 
         Assert.Null(machine);
-        Assert.DoesNotContain(machines, x => x.Name.Value == name);
+        Assert.DoesNotContain(machines, x => x.MachineryName.Value == name);
     }
 
     [Theory]
@@ -160,10 +160,10 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
     [InlineData(5)]
     public async Task MachType_WithExistingInt_ShouldReturnIEnumerableOfMachineEntity(int type)
     {
-        var machines = await _query.GetByMachTypeAsync(type);
+        var machines = await _query.GetByTypeAsync(type);
 
         Assert.NotEmpty(machines);
-        Assert.Contains(machines, x => (int)x.MachType.Value == type);
+        Assert.Contains(machines, x => (int)x.MachineryType.Value == type);
     }
 
     [Theory]
@@ -172,10 +172,10 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
 
     public async Task MachType_WithNonExistingInt_ShouldReturnEmptyIEnumerable(int type)
     {
-        var machines = await _query.GetByMachTypeAsync(type);
+        var machines = await _query.GetByTypeAsync(type);
 
         Assert.Empty(machines);
-        Assert.DoesNotContain(machines, x => (int)x.MachType.Value == type);
+        Assert.DoesNotContain(machines, x => (int)x.MachineryType.Value == type);
     }
 
     [Theory]
@@ -186,7 +186,7 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
         var machines = await _query.GetByStatusAsync(type);
 
         Assert.NotEmpty(machines);
-        Assert.Contains(machines, x => (int)x.Status.Value == type);
+        Assert.Contains(machines, x => (int)x.MachineryStatus.Value == type);
     }
 
     [Theory]
@@ -196,6 +196,6 @@ public sealed class FakeMachineQueryTest : FakeBaseDb
         var machines = await _query.GetByStatusAsync(type);
 
         Assert.Empty(machines);
-        Assert.DoesNotContain(machines, x => (int)x.Status.Value == type);
+        Assert.DoesNotContain(machines, x => (int)x.MachineryStatus.Value == type);
     }
 }
