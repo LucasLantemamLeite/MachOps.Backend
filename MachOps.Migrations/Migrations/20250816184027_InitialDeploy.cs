@@ -40,7 +40,7 @@ namespace MachOps.Migrations.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "Nvarchar(100)", nullable: false),
                     Email = table.Column<string>(type: "Nvarchar(254)", nullable: false),
-                    Password = table.Column<string>(type: "Nvarchar(100)", nullable: false),
+                    Password = table.Column<string>(type: "Nvarchar(255)", nullable: false),
                     Phone = table.Column<string>(type: "Nvarchar(20)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "SmallDateTime", nullable: false),
                     Active = table.Column<bool>(type: "Bit", nullable: false),

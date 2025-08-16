@@ -319,7 +319,7 @@ namespace MachOps.Migrations.Migrations
 
                             b1.Property<string>("Value")
                                 .IsRequired()
-                                .HasColumnType("Nvarchar(100)")
+                                .HasColumnType("Nvarchar(255)")
                                 .HasColumnName("Password");
 
                             b1.HasKey("UserAccountId");

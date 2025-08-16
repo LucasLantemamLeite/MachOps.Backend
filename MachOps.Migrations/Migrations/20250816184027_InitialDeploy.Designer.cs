@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MachOps.Migrations.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250816142049_InitialDeploy")]
+    [Migration("20250816184027_InitialDeploy")]
     partial class InitialDeploy
     {
         /// <inheritdoc />
@@ -322,7 +322,7 @@ namespace MachOps.Migrations.Migrations
 
                             b1.Property<string>("Value")
                                 .IsRequired()
-                                .HasColumnType("Nvarchar(100)")
+                                .HasColumnType("Nvarchar(255)")
                                 .HasColumnName("Password");
 
                             b1.HasKey("UserAccountId");
