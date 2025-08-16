@@ -10,7 +10,7 @@ namespace MachOps.Infrastructure.Implementations.Queries;
 public sealed class MachineryQuery(IDbConnection connection) : IMachineryQuery
 {
     private readonly IDbConnection _connection = connection;
-    private const string SqlSelectBase = "SELECT Id, Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenanceStartDate, ExpectedReturnDate FROM [Machines]";
+    private const string SqlSelectBase = "SELECT Id, Name, Type, Status, Location, CreatedAt, LastUpdatedAt, Description, Start, Return FROM [Machines]";
 
     public async Task<List<Machinery>> GetAllAsync()
     {
@@ -33,29 +33,29 @@ public sealed class MachineryQuery(IDbConnection connection) : IMachineryQuery
         var start = maintenanceStart.Date;
         var end = expectReturn.Date.AddDays(1);
 
-        var sql = $"{SqlSelectBase} WHERE MaintenceStartDate >= @Start AND ExpectedReturnDate < @End";
+        var sql = $"{SqlSelectBase} WHERE Start >= @Start AND Return < @End";
         var parameters = new { Start = start, End = end };
         var raws = await _connection.QueryAsync<MachineryRaw>(sql, parameters);
 
         return raws.ToListMachinery();
     }
 
-    public async Task<List<Machinery>> GetByMaintenceStartDateAsync(DateTime maintenanceStart)
+    public async Task<List<Machinery>> GetByMaintenceStartDateAsync(DateTime startDate)
     {
-        var start = maintenanceStart.Date;
+        var start = startDate.Date;
 
-        var sql = $"{SqlSelectBase} WHERE MaintenceStartDate = @Start";
+        var sql = $"{SqlSelectBase} WHERE Start = @Start";
         var parameters = new { Start = start };
         var raws = await _connection.QueryAsync<MachineryRaw>(sql, parameters);
 
         return raws.ToListMachinery();
     }
 
-    public async Task<List<Machinery>> GetByExpectedReturnDateAsync(DateTime expectReturn)
+    public async Task<List<Machinery>> GetByExpectedReturnDateAsync(DateTime returnDate)
     {
-        var end = expectReturn.Date;
+        var end = returnDate.Date;
 
-        var sql = $"{SqlSelectBase} WHERE ExpectedReturnDate = @End";
+        var sql = $"{SqlSelectBase} WHERE Return = @End";
         var parameters = new { End = end };
         var raws = await _connection.QueryAsync<MachineryRaw>(sql, parameters);
 
@@ -64,8 +64,8 @@ public sealed class MachineryQuery(IDbConnection connection) : IMachineryQuery
 
     public async Task<List<Machinery>> GetByTypeAsync(int type)
     {
-        var sql = $"{SqlSelectBase} WHERE MachType = @MachType";
-        var parameters = new { MachType = type };
+        var sql = $"{SqlSelectBase} WHERE Type = @Type";
+        var parameters = new { Type = type };
         var raws = await _connection.QueryAsync<MachineryRaw>(sql, parameters);
 
         return raws.ToListMachinery();
