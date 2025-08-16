@@ -1,6 +1,6 @@
-namespace MachOps.Domain.Enums.Machinery;
+namespace MachOps.Domain.Enums;
 
-public enum EMachineryType
+public enum EMachType
 {
     Forklift = 1,
     Excavator = 2,
