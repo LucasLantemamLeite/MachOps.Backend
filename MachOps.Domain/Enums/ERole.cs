@@ -4,8 +4,9 @@ namespace MachOps.Domain.Enums;
 public enum ERole
 {
     Operator = 1 << 0,
-    Manager = 1 << 1,
-    Coordinator = 1 << 2,
-    Director = 1 << 3,
-    Admin = 1 << 4
+    Manager = Operator | 1 << 1,
+    Coordinator = Operator | Manager | 1 << 2,
+    Director = Operator | Manager | Coordinator | 1 << 3,
+    Admin = Operator | Manager | Coordinator | Director | 1 << 4,
+    SuperAdmin = Operator | Manager | Coordinator | Director | Admin | 1 << 5
 }
