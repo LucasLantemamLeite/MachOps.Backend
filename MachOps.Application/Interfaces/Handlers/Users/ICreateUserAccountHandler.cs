@@ -4,7 +4,7 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Application.Interfaces.Handlers.Users;
 
-public interface ICreateUserAccountHandlers
+public interface ICreateUserAccountHandler
 {
     Task<Result<UserAccount?>> Handle(CreateUserAccountDto userDto);
 }
