@@ -10,15 +10,15 @@ public static class MachinaryMapper
         return new Machinery
         (
             machineryRaw.Id,
-            machineryRaw.MachineryName,
-            machineryRaw.MachineryType,
-            machineryRaw.MachineryStatus,
-            machineryRaw.MachineryLocation,
-            machineryRaw.MachineryCreatedAt,
-            machineryRaw.MachineryLastUpdatedAt,
-            machineryRaw.MachineryDescription,
-            machineryRaw.MaintenanceStartDate,
-            machineryRaw.ExpectedReturnDate
+            machineryRaw.Name,
+            machineryRaw.MachType,
+            machineryRaw.Status,
+            machineryRaw.Location,
+            machineryRaw.CreatedAt,
+            machineryRaw.LastUpdatedAt,
+            machineryRaw.Description,
+            machineryRaw.Start,
+            machineryRaw.Return
         );
     }
 
