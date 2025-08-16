@@ -9,7 +9,7 @@ public sealed class Password : ValueObject
 
     public Password(string password)
     {
-        DomainException.ThrowIfFalse(!string.IsNullOrWhiteSpace(password), "Senha do usuário não pode ser vazio ou nulo.");
+        DomainException.ThrowIfFalse(!string.IsNullOrWhiteSpace(password), "Senha do usuário não pode ser nulo nem vazio.");
         Value = password;
     }
 }
