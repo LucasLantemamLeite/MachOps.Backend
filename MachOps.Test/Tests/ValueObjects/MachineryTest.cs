@@ -3,10 +3,10 @@ using MachOps.Domain.ValueObjects.Machinery;
 
 namespace MachOps.Test.ValueObjects;
 
-[Trait("Category", "ValueObjectTest")]
-public sealed class ValueObjectsTest
+[Trait("Category", "MachineryTest")]
+public sealed class MachineryTest
 {
-    private const string NameNullOrEmptyMessage = "Name não pode ser nulo nem vazio.";
+    private const string NameNullOrEmptyMessage = "Nome da máquina não pode ser nulo nem vazio.";
     private const string MachTypeInvalidMessage = "MachType inválido.";
     private const string StatusInvalidMessage = "Status inválido.";
 
