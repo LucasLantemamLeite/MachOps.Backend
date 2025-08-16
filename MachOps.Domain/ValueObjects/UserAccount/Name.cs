@@ -9,7 +9,7 @@ public sealed class Name : ValueObject
 
     public Name(string name)
     {
-        DomainException.ThrowIfFalse(!string.IsNullOrWhiteSpace(name), "Nome do usuário não pode ser vazio ou nulo.");
+        DomainException.ThrowIfFalse(!string.IsNullOrWhiteSpace(name), "Nome do usuário não pode ser nulo nem vazio.");
         Value = name;
     }
 }
