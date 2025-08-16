@@ -32,7 +32,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
         builder.OwnsOne(x => x.MachineryType, machType =>
         {
             machType.Property(x => x.Value)
-                .HasColumnName("MachType")
+                .HasColumnName("Type")
                 .HasColumnType("Int")
                 .IsRequired();
         });
@@ -78,14 +78,14 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
         builder.OwnsOne(x => x.MaintenanceStartDate, start =>
         {
             start.Property(x => x.Value)
-                .HasColumnName("MaintenanceStartDate")
+                .HasColumnName("Start")
                 .HasColumnType("Date");
         });
 
         builder.OwnsOne(x => x.ExpectedReturnDate, expected =>
         {
             expected.Property(x => x.Value)
-                .HasColumnName("ExpectedReturnDate")
+                .HasColumnName("Return")
                 .HasColumnType("Date");
         });
     }
