@@ -3,11 +3,11 @@ using MachOps.Domain.ValueObjects.Base;
 
 namespace MachOps.Domain.ValueObjects.UserAccount;
 
-public sealed class UserAccountEmail : ValueObject
+public sealed class Email : ValueObject
 {
     public string Value { get; } = null!;
 
-    public UserAccountEmail(string email)
+    public Email(string email)
     {
         EmailRegexException.ThrowIfNotMatch(email, "Email inválido.");
         Value = email;
