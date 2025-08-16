@@ -6,7 +6,7 @@ namespace MachOps.Domain.ValueObjects.UserAccount;
 
 public sealed class Role : ValueObject
 {
-    public ERole Value { get; }
+    public ERole Value { get; } = ERole.User;
 
     public Role(int role)
     {
