@@ -6,5 +6,5 @@ namespace MachOps.Application.Interfaces.Handlers.Users;
 
 public interface ICreateUserAccountHandler
 {
-    Task<Result<UserAccount?>> Handle(CreateUserAccountDto userDto);
+    Task<Result<UserAccount>> Handle(CreateUserAccountDto userDto);
 }
