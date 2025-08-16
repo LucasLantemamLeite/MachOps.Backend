@@ -30,9 +30,11 @@ public sealed class CreateUserAccountUseCase(Queries query, Repositories reposit
 
             var userAccount = new UserAccount(command.Name, command.Email, command.Password, command.Phone, (int)roleAsEnum);
 
-            var row = await Repository.UserRepository.CreateAsync(userAccount);
+            var id = await Repository.UserRepository.CreateAsync(userAccount);
 
-            return Result<UserAccount>.Ok($"Conta criada com sucesso: linhas afetadas {row}.", userAccount);
+            userAccount.ChangeId(id);
+
+            return Result<UserAccount>.Ok($"Conta criada com sucesso.", userAccount);
         }
 
         catch (Exception ex) when (ex is DomainException or EnumFlagsException or EmailRegexException or PhoneRegexException)
@@ -42,7 +44,7 @@ public sealed class CreateUserAccountUseCase(Queries query, Repositories reposit
 
         catch
         {
-            return Result<UserAccount>.Fail("Erro interno no servidor tente novamente mais tarde");
+            return Result<UserAccount>.Fail("Erro interno no servidor. Tente novamente mais tarde.");
         }
     }
 }
