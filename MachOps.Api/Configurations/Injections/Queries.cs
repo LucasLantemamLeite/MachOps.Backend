@@ -7,7 +7,7 @@ public static class QueryInjection
 {
     public static IServiceCollection RegisterQueries(this IServiceCollection service)
     {
-        service.AddScoped<IMachineQuery, MachineQuery>();
+        service.AddScoped<IMachineryQuery, MachineryQuery>();
 
         return service;
     }
