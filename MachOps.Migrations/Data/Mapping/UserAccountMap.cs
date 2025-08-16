@@ -41,7 +41,7 @@ public sealed class UserAccountMap : IEntityTypeConfiguration<UserAccount>
         {
             password.Property(x => x.Value)
                 .HasColumnName("Password")
-                .HasColumnType("Nvarchar(100)")
+                .HasColumnType("Nvarchar(255)")
                 .IsRequired();
         });
 
