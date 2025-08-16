@@ -18,7 +18,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
             .UseIdentityColumn()
             .ValueGeneratedOnAdd();
 
-        builder.OwnsOne(x => x.MachineryName, name =>
+        builder.OwnsOne(x => x.Name, name =>
         {
             name.Property(x => x.Value)
                 .HasColumnName("Name")
@@ -29,7 +29,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
                 .IsUnique();
         });
 
-        builder.OwnsOne(x => x.MachineryType, machType =>
+        builder.OwnsOne(x => x.MachType, machType =>
         {
             machType.Property(x => x.Value)
                 .HasColumnName("Type")
@@ -37,7 +37,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.MachineryStatus, status =>
+        builder.OwnsOne(x => x.Status, status =>
         {
             status.Property(x => x.Value)
                 .HasColumnName("Status")
@@ -45,14 +45,14 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.MachineryLocation, location =>
+        builder.OwnsOne(x => x.Location, location =>
         {
             location.Property(x => x.Value)
                 .HasColumnName("Location")
                 .HasColumnType("Nvarchar(20)");
         });
 
-        builder.OwnsOne(x => x.MachineryCreatedAt, create =>
+        builder.OwnsOne(x => x.CreatedAt, create =>
         {
             create.Property(x => x.Value)
                 .HasColumnName("CreateAt")
@@ -60,7 +60,7 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.MachineryLastUpdatedAt, update =>
+        builder.OwnsOne(x => x.LastUpdatedAt, update =>
         {
             update.Property(x => x.Value)
                 .HasColumnName("UpdateAt")
@@ -68,21 +68,21 @@ public sealed class MachineMap : IEntityTypeConfiguration<Machinery>
                 .IsRequired();
         });
 
-        builder.OwnsOne(x => x.MachineryDescription, description =>
+        builder.OwnsOne(x => x.Description, description =>
         {
             description.Property(x => x.Value)
                 .HasColumnName("Description")
                 .HasColumnType("Nvarchar(100)");
         });
 
-        builder.OwnsOne(x => x.MaintenanceStartDate, start =>
+        builder.OwnsOne(x => x.MaintenanceStart, start =>
         {
             start.Property(x => x.Value)
                 .HasColumnName("Start")
                 .HasColumnType("Date");
         });
 
-        builder.OwnsOne(x => x.ExpectedReturnDate, expected =>
+        builder.OwnsOne(x => x.MaintenanceReturn, expected =>
         {
             expected.Property(x => x.Value)
                 .HasColumnName("Return")
