@@ -4,6 +4,7 @@ using MachOps.Application.Shared.ResultCases;
 using MachOps.Application.Shared.UseCases.Base;
 using MachOps.Application.Shared.UseCases.Base.Utils;
 using MachOps.Domain.Entities;
+using MachOps.Domain.Enums;
 using MachOps.Domain.Validations;
 
 namespace MachOps.Application.Shared.UseCases.Users;
@@ -24,7 +25,10 @@ public sealed class CreateUserAccountUseCase(Queries query, Repositories reposit
             if (existingPhone is not null)
                 return Result<UserAccount>.Fail("Phone já está em uso.");
 
-            var userAccount = new UserAccount(command.Name, command.Email, command.Password, command.Phone, command.Role);
+            if (!Enum.TryParse<ERole>(command.Role, out var roleAsEnum))
+                return Result<UserAccount>.Fail("Role inválido.");
+
+            var userAccount = new UserAccount(command.Name, command.Email, command.Password, command.Phone, (int)roleAsEnum);
 
             var row = await Repository.UserRepository.CreateAsync(userAccount);
 
