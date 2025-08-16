@@ -7,12 +7,9 @@ using MachOps.Domain.Entities;
 
 namespace MachOps.Infrastructure.Implementations.Queries;
 
-public sealed class MachineryQuery : IMachineryQuery
+public sealed class MachineryQuery(IDbConnection connection) : IMachineryQuery
 {
-    private readonly IDbConnection _connection;
-
-    public MachineryQuery(IDbConnection connection) => _connection = connection;
-
+    private readonly IDbConnection _connection = connection;
     private const string SqlSelectBase = "SELECT Id, Name, MachType, Status, Location, CreateAt, UpdateAt, Description, MaintenanceStartDate, ExpectedReturnDate FROM [Machines]";
 
     public async Task<List<Machinery>> GetAllAsync()
