@@ -12,4 +12,6 @@ public sealed class Name : ValueObject
         DomainException.ThrowIfFalse(!string.IsNullOrWhiteSpace(name), "Nome do usuário não pode ser nulo nem vazio.");
         Value = name;
     }
+
+    private Name() { }
 }

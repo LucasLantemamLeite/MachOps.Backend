@@ -12,4 +12,6 @@ public sealed class Email : ValueObject
         EmailRegexException.ThrowIfNotMatch(email, "Email inválido.");
         Value = email;
     }
+
+    private Email() { }
 }

@@ -13,4 +13,6 @@ public sealed class Role : ValueObject
         EnumFlagsException.ThrowIfNotFlagDefined<ERole>(role, "Role inválido.");
         Value = (ERole)role;
     }
+
+    private Role() { }
 }

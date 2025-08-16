@@ -12,4 +12,6 @@ public sealed class Phone : ValueObject
         PhoneRegexException.ThrowIfNotMatch(phone, "Phone inválido.");
         Value = phone;
     }
+
+    private Phone() { }
 }
