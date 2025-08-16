@@ -1,6 +1,6 @@
 using MachOps.Domain.Enums.Machinery;
+using MachOps.Domain.Validations;
 using MachOps.Domain.ValueObjects.Base;
-using MachOps.Domain.ValueObjects.Validations;
 
 namespace MachOps.Domain.ValueObjects.Machinery;
 
